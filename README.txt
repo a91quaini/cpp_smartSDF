@@ -27,7 +27,7 @@ Commands:
 
 Run program:
 -----------
-from projectTemplate/ type on the terminal:
+in CppProjectTemplate/ type
 `make`
 then
 `cd build/apps`
