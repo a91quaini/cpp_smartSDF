@@ -26,10 +26,14 @@ Commands:
 `make debug` : make with debug compilation flags
 
 Run program:
------------
+------------
 in CppProjectTemplate/ type
 `make`
 then
 `cd build/apps`
 then
 `./program`
+
+Aknowledgement:
+---------------
+www.patrow.net
