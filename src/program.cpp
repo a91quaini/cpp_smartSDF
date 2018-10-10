@@ -9,7 +9,9 @@ int main (void)
    mod1c2 m1c2;
    mod2c1 m2c1;
    mod2c2 m2c2;
-
+   
+   std::cout << "Program\n";
+   std::cout << "=======\n";
    m1c1.foo();
    m1c2.foo();
    m2c1.foo();
