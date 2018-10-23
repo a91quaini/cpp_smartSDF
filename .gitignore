@@ -35,4 +35,4 @@
 build/*
 
 # include/external directory
-external/*
+include/external/*
