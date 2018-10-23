@@ -1,19 +1,27 @@
-#include <module1/mod1c1.hpp>
-#include <module1/mod1c2.hpp>
-#include <module2/mod2c1.hpp>
-#include <module2/mod2c2.hpp>
+#include <iostream>
+#include "optim/objective.hpp"
+#include "external/eigen/Eigen/Dense"
 
 int main (void)
 {
-   mod1c1 m1c1;
-   mod1c2 m1c2;
-   mod2c1 m2c1;
-   mod2c2 m2c2;
-   
-   std::cout << "Program\n";
-   std::cout << "=======\n";
-   m1c1.foo();
-   m1c2.foo();
-   m2c1.foo();
-   m2c2.foo();
+    const unsigned N = 2;
+    const unsigned T = 3;
+    Eigen::VectorXd eigen_weights(N);
+    Eigen::MatrixXd eigen_returns(T,N);
+    double eigen_div=0.0;
+    Eigen::VectorXd* eigen_grad = new Eigen::VectorXd(N);
+
+    for (unsigned t=0; t<T; ++t)
+        for (unsigned n=0; n<N; ++n)
+        {
+             eigen_weights(n)=double(n+1)/7.0;
+             //(*eigen_grad)(n)=0.0;
+             eigen_returns(t,n)=double((n+1)*(t+1))/7.0;
+        }
+
+    std::cout << eigen_weights << std::endl;
+    std::cout << eigen_returns << std::endl;
+    hj_div(eigen_weights, eigen_returns, eigen_div, eigen_grad);
+    std::cout << eigen_div << std::endl;
+    std::cout << *eigen_grad << std::endl;
 }
